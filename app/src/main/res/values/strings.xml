@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FT20230306</string>
+    <string name="chars_selection">Chars</string>
+    <string-array name="options_array">
+        <item>Chars</item>
+        <item>Words</item>
+    </string-array>
+</resources>
