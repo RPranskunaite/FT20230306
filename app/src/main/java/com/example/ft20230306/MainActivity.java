@@ -34,10 +34,16 @@ public class MainActivity extends AppCompatActivity {
         String userInput = this.edMain.getText().toString();
         String selectedOptions = this.spCountingOptions.getSelectedItem().toString();
         if(selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))){
-            this.tvResult.setText(userInput.length());
+            //this.tvResult.setText(String.valueOf(userInput.length()));
+            this.tvResult.setText(getCharsCount(userInput));
         }
         else{
             Toast.makeText(getApplicationContext(),"Not implemented", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private String getCharsCount(String inputSting){
+        return String.valueOf(inputSting.length());
+
     }
 }
