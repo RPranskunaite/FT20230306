@@ -10,11 +10,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ft20230306.utils.TextCounter;
+
+import java.text.BreakIterator;
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spCountingOptions;
     private EditText edMain;
     private TextView tvResult;
+    private BreakIterator txtMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
         String selectedOptions = this.spCountingOptions.getSelectedItem().toString();
         if(selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))){
             //this.tvResult.setText(String.valueOf(userInput.length()));
-            this.tvResult.setText(getCharsCount(userInput));
+            this.tvResult.setText(TextCounter.getCharsCount(userInput));
         }
         else{
-            Toast.makeText(getApplicationContext(),"Not implemented", Toast.LENGTH_LONG).show();
+            int wordsCount = TextCounter.countWords(this.txtMain.getText().toString());
+            String wordsCountFormatted = String.valueOf(wordsCount);
+            this.tvResult.setText(wordsCountFormatted);
         }
     }
 
