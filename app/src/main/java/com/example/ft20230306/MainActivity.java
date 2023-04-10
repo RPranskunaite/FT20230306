@@ -10,16 +10,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ft20230306.utils.TextCounter;
-
-import java.text.BreakIterator;
-
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spCountingOptions;
     private EditText edMain;
     private TextView tvResult;
-    private BreakIterator txtMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +33,17 @@ public class MainActivity extends AppCompatActivity {
     public void btnCountOnClick(View view) {
         String userInput = this.edMain.getText().toString();
         String selectedOptions = this.spCountingOptions.getSelectedItem().toString();
-        if (selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))) {
+        if(selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))){
             //this.tvResult.setText(String.valueOf(userInput.length()));
-            this.tvResult.setText(TextCounter.getCharsCount(userInput));
-        } else {
-            Toast.makeText(getApplicationContext(), "Not implemeted", Toast.LENGTH_LONG).show();
+            this.tvResult.setText(getCharsCount(userInput));
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Not implemented", Toast.LENGTH_LONG).show();
         }
     }
+
+    private String getCharsCount(String inputSting){
+        return String.valueOf(inputSting.length());
+
+    }
 }
-    //private String getCharsCount(String inputSting){
-        //return String.valueOf(inputSting.length());
