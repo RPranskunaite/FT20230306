@@ -8,7 +8,13 @@ public class TextCounter {
         return "0";
     }
 
-    public static String getWordsCount(String inputString) throws Exception {
+    public static String getWordCount(String inputString) throws Exception {
         throw new Exception("NotImplemented!!!");
+    }
+    public static String getWordsCount(String inputSting) {
+        if (inputSting != null) {
+            return String.valueOf(inputSting.length());
+        }
+        return "0";
     }
 }
