@@ -38,19 +38,13 @@ public class MainActivity extends AppCompatActivity {
     public void btnCountOnClick(View view) {
         String userInput = this.edMain.getText().toString();
         String selectedOptions = this.spCountingOptions.getSelectedItem().toString();
-        if(selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))){
+        if (selectedOptions.equalsIgnoreCase(getResources().getString(R.string.chars_selection))) {
             //this.tvResult.setText(String.valueOf(userInput.length()));
             this.tvResult.setText(TextCounter.getCharsCount(userInput));
+        } else {
+            Toast.makeText(getApplicationContext(), "Not implemeted", Toast.LENGTH_LONG).show();
         }
-        else{
-            int wordsCount = TextCounter.countWords(this.txtMain.getText().toString());
-            String wordsCountFormatted = String.valueOf(wordsCount);
-            this.tvResult.setText(wordsCountFormatted);
-        }
-    }
-
-    private String getCharsCount(String inputSting){
-        return String.valueOf(inputSting.length());
-
     }
 }
+    //private String getCharsCount(String inputSting){
+        //return String.valueOf(inputSting.length());
